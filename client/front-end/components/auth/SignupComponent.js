@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { Button, Form, FormGroup, Input, Label } from "reactstrap"
 import { Signup } from '../../actions/auth'
 
@@ -15,6 +15,9 @@ const SignupComponent = () => {
         message:'',
         showForm:true
     })
+    useEffect(() =>{
+        isAuth() && Router.push('/')
+      },[])
 
     //we should destructure
     const {name,email,password,message,showForm,loading, error} = values

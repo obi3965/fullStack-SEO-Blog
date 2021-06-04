@@ -1,8 +1,8 @@
 import Router from 'next/router';
-import React,{useState} from 'react'
-import { Button, Form, FormGroup, Input, Label } from "reactstrap"
-import { Signin } from '../../actions/auth'
-
+import React,{useState, useEffect} from 'react'
+import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import { authenticate, Signin, isAuth} from '../../actions/auth'
+import styles from '../../styles/Form.module.css'
 
 
 
@@ -16,8 +16,14 @@ const SigninComponent = () => {
         showForm:true
     })
 
+    useEffect(() =>{
+      isAuth() && Router.push('/')
+    },[])
+
     //we should destructure
     const {email,password,message,showForm,loading, error} = values
+
+     
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,7 +34,10 @@ const SigninComponent = () => {
             if (data.error) {
                 setValues({ ...values, error: data.error, loading: false });
             } else {
-                Router.push('/')
+                authenticate(data, ()=>{
+                  Router.push('/')  
+                })
+                
             }
         });
        }
@@ -41,7 +50,7 @@ const SigninComponent = () => {
 
     const signinForm = () =>{
          return(
-            <Form onSubmit={handleSubmit}>
+            <Form className={styles.signinForm} onSubmit={handleSubmit}>
                 <FormGroup>
             <Label for="Email">Email</Label>
             <Input value={email}  onChange={handleChange('email')} type="email" name="email" id="Email" placeholder="Enter your Email" />
@@ -50,7 +59,7 @@ const SigninComponent = () => {
             <Label for="Password">Password</Label>
             <Input value={password}  onChange={handleChange('password')} type="password" name="password" id="Password" placeholder="Enter your Password" />
           </FormGroup>
-          <Button>Signin</Button>
+          <Button className={styles.signinBtn}>Signin</Button>
             </Form>
         )
     }
@@ -60,10 +69,18 @@ const SigninComponent = () => {
     const showMessage = () => (message ? <div className="alert alert-info">{message}</div> : '');
    return(
     <React.Fragment>
-            {showError()}
-            {showLoading()}
-            {showMessage()}
-       { showForm && signinForm()}
+          <Container>
+              <Row>
+                  <Col md={{ size: '4', offset: 4 }}>
+                  {showError()}
+               {showLoading()}
+               {showMessage()}
+               { showForm && signinForm()}
+                  </Col>
+              </Row>
+           
+          </Container>
+        
     </React.Fragment>   
    ) 
    

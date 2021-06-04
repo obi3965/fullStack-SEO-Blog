@@ -1,0 +1,10 @@
+.signinForm{
+    margin-top: 80px;
+}
+.signinBtn{
+    background-color: #ff0036;
+    margin-top: 15px;
+}
+.signinBtn:hover{
+    background-color: #922bef;
+}

@@ -12,8 +12,9 @@ class MyDocument extends Document {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
           rel="stylesheet"
         />
-          {/* <link rel="stylesheet" href="/static/css/styles.css" /> */}
+          
         </Head>
+        
         <body>
           <Main />
           <NextScript />

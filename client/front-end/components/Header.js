@@ -1,67 +1,74 @@
+
 import React, { useState } from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
+import { APP_NAME } from '../config';
+import { signout, isAuth } from '../actions/auth';
 import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import { APP_NAME } from '../config'
 import {
   Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
+  NavbarToggler, 
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  Container,
+  
 } from 'reactstrap';
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
-    return(
-        <React.Fragment>
-          <Navbar className={styles.wrapper}  light expand="md">
-        <NavbarBrand href="/">{APP_NAME}</NavbarBrand>
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div>
+      <Navbar className={styles.navbar} light expand="md">
+        <Link href="/">
+          <NavLink className={styles.logo}>{APP_NAME}</NavLink>
+        </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-                <Link href="/signin">
-                    <NavLink className={styles.links} >signin</NavLink>
-                </Link>
-              
-            </NavItem>
-            <NavItem>
-            <Link href="/signup">
-                    <NavLink className={styles.links} >signup</NavLink>
-                </Link>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+          <Container>
+          <Nav className={styles.nav} navbar>
+          <NavItem>
+                  <Link href="/">
+                    <NavLink className={styles.navLink}>home</NavLink>
+                  </Link>
+                </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          </Container>
+        <div className={styles.user}>
+        {!isAuth() && (
+              <React.Fragment>
+                <NavItem>
+                  <Link href="/signin">
+                    <NavLink className={styles.userLink, styles.link2}>Signin</NavLink>
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link href="/signup">
+                    <NavLink className={styles.userLink,styles.link1}>Signup</NavLink>
+                  </Link>
+                </NavItem>
+              </React.Fragment>
+            )}
+
+            {isAuth() && (
+              <NavItem>
+                <NavLink className={styles.userLink} onClick={() => signout(() => Router.replace(`/signin`))}>
+                  Signout
+                </NavLink>
+              </NavItem>
+            )}
+            
+        </div>
         </Collapse>
       </Navbar>
-        </React.Fragment>
-    )
-}
+    </div>
+  );
+};
 
-export default Header
+export default Header;

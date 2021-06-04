@@ -26,14 +26,17 @@
 
  
 import Link from 'next/link';
+import Banner from '../components/Banner';
 
 const Index = () => {
   return (
     <div>
-        <h2>Index page</h2>
+        <div>
+            <Banner/>
         <Link href="/signin">
             <a>Signup</a>
         </Link>
+        </div>
         <h1>footer</h1>
     </div>
 );
