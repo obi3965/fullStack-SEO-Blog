@@ -56,6 +56,28 @@ const Header = () => {
               </React.Fragment>
             )}
 
+          
+
+          {isAuth() && isAuth().role == 0 && (
+              <NavItem>
+                <Link href="/user">
+                <NavLink className={styles.userLink}>
+                 {`${isAuth().name}, user dashboard`}
+                </NavLink>
+                </Link>
+              </NavItem>
+            )}
+
+           {isAuth() && isAuth().role == 1 && (
+              <NavItem>
+                <Link href="/admin">
+                <NavLink className={styles.userLink}>
+                 {`${isAuth().name}, dashboard`}
+                </NavLink>
+                </Link>
+              </NavItem>
+            )}
+
             {isAuth() && (
               <NavItem>
                 <NavLink className={styles.userLink} onClick={() => signout(() => Router.replace(`/signin`))}>

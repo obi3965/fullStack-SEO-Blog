@@ -35,7 +35,11 @@ const SigninComponent = () => {
                 setValues({ ...values, error: data.error, loading: false });
             } else {
                 authenticate(data, ()=>{
-                  Router.push('/')  
+                 if(isAuth() && isAuth().role == 1){
+                  Router.push('/admin')  
+                 }else{
+                  Router.push('/user')  
+                 }
                 })
                 
             }
@@ -50,6 +54,7 @@ const SigninComponent = () => {
 
     const signinForm = () =>{
          return(
+             <div className={styles.formBox}>
             <Form className={styles.signinForm} onSubmit={handleSubmit}>
                 <FormGroup>
             <Label for="Email">Email</Label>
@@ -59,8 +64,12 @@ const SigninComponent = () => {
             <Label for="Password">Password</Label>
             <Input value={password}  onChange={handleChange('password')} type="password" name="password" id="Password" placeholder="Enter your Password" />
           </FormGroup>
-          <Button className={styles.signinBtn}>Signin</Button>
+          <div className={styles.formButton}>
+            <Button className={styles.signinBtn}>Signin</Button>  
+          </div>
+          
             </Form>
+            </div>
         )
     }
 
@@ -71,7 +80,7 @@ const SigninComponent = () => {
     <React.Fragment>
           <Container>
               <Row>
-                  <Col md={{ size: '4', offset: 4 }}>
+                  <Col md="12">
                   {showError()}
                {showLoading()}
                {showMessage()}

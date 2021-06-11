@@ -1,10 +1,31 @@
 .signinForm{
-    margin-top: 80px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 50%;
+ 
+}
+.formBox{
+    position: relative;
+    height: 80vh;
+    width: 100%; 
 }
 .signinBtn{
-    background-color: #ff0036;
+    background-color: #eac100;
     margin-top: 15px;
+    padding: 10px 35px;
+   transition: all .5s ease-in-out;
+    background-color:#eac100;
+}
+.formButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 .signinBtn:hover{
-    background-color: #922bef;
+    transition: all .5s ease-in-out;
+    background-color:#eac100;
+    border-radius: 35px;
 }

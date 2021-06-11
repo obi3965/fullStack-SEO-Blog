@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Monoton&family=Pacifico&display=swap');
+
 .navbar{
-  background: #1f2833 !important;
-  padding: 10px;
+  /* background: #1f2833 !important; */
+  padding: 22px;
  position: fixed;
  top: 0;
  z-index: 999;
  right: 0;
  left: 0;
+ height: 12vh;
  transition: ease-in-out .5s all;
+ background-color: #fff !important;
 }
 .links{
-  color: #fff !important;
+  color: #000 !important;
   cursor: pointer;
 }
 .navLink:hover{
@@ -17,8 +21,8 @@
 }
 
 .banner{
-  background-image:linear-gradient(to bottom, transparent,#000),
-   url('../public/images/banner.jpg');
+  background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+   url('../public/images/img73.jpg');
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +35,7 @@
   margin-left: 100px !important;
 }
 .navLink{
-  color: #fff !important;
+  color: #000 !important;
   text-transform: capitalize;
   font-size: 20px;
   font-weight: 600;
@@ -44,6 +48,7 @@ letter-spacing: 2px;
  font-weight: 800;
  text-transform: uppercase;
  font-size: 23px;
+ font-family: 'Pacifico', cursive;
 }
 .user{
   display: flex;
@@ -53,7 +58,7 @@ letter-spacing: 2px;
 
 
 .link1{
-  color: #eac100 !important;
+  color: #000 !important;
   border: 1px solid #eac100;
   padding: 7px 23px !important;
   letter-spacing: 1px;
@@ -63,6 +68,7 @@ letter-spacing: 2px;
   transition: all .5s ease-in-out;
   font-size: 18px;
   border-radius: 5px;
+  background-color:#eac100;
   
 }
 .link1:hover{
@@ -81,8 +87,9 @@ letter-spacing: 2px;
   cursor:  pointer !important;
   border: 1px solid #eac100;
   border-radius: 5px;
-  color: #eac100;
+  color: #000;
   transition: all .5s ease-in-out;
+  background-color:#eac100;
 }
 
 .link2:hover{
@@ -93,11 +100,11 @@ letter-spacing: 2px;
 }
 .bannerItems{
   position: absolute;
-  top: 55%;
+  top: 64%;
   left: 50%;
   color: #fff;
   text-transform:uppercase ;
-  transform: translate(-50%,-55%);
+  transform: translate(-50%,-64%);
   align-items: center;
   justify-content: center;
   display: flex;
@@ -107,12 +114,13 @@ letter-spacing: 2px;
 .bannerTitle{
   font-size: 50px;
   font-weight: 900;
+  
 }
 .bannerItems a{
   background-color: #eac100 !important;
   border: 2px solid #eac100!important;
-  padding: 10px 35px;
-  margin: 20px auto;
+  padding: 12px 50px;
+  margin: 30px auto;
   color: #fff;
   text-transform: capitalize;
   font-weight: 600;
@@ -126,4 +134,27 @@ letter-spacing: 2px;
 .bannerItems a:hover{
   transform: translate(0px, -6px);
   box-shadow: 0px 30px 15px -16px rgba(0,0,0,0.4);
+  color: #fff !important;
+}
+
+
+.userLink{
+  color: #000 !important;
+  border: 1px solid #eac100;
+  padding: 7px 23px !important;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin-right: 10px !important;
+  cursor:  pointer !important;
+  transition: all .5s ease-in-out;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color:#eac100;
+  
+}
+.userLink:hover{
+  background-color: #eac100;
+  transition: all .5s ease-in-out;
+  color: #000 !important;
+  border-radius: 35px;
 }

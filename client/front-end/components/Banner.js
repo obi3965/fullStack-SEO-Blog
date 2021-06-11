@@ -6,7 +6,10 @@ const Banner = () => {
   return(
     <div className={styles.banner}>
      <div className={styles.bannerItems}>
-         <h1 className={styles.bannerTitle}>our fresh foods seo blog</h1>
+         <h1 className={styles.bannerTitle}>life is an adventure,
+         <br />
+          it's not a package tour.
+         </h1>
      
          <Link className={styles.bannerBtn} href='/'>view all</Link>
      </div>

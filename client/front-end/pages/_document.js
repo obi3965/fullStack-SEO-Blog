@@ -12,6 +12,7 @@ class MyDocument extends Document {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
           rel="stylesheet"
         />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"/>
           
         </Head>
         

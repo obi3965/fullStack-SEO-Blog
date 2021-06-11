@@ -27,15 +27,17 @@
  
 import Link from 'next/link';
 import Banner from '../components/Banner';
+import Services from '../components/Services';
 
 const Index = () => {
   return (
     <div>
         <div>
             <Banner/>
-        <Link href="/signin">
-            <a>Signup</a>
-        </Link>
+           
+           <div>
+               <Services/>
+           </div>
         </div>
         <h1>footer</h1>
     </div>
