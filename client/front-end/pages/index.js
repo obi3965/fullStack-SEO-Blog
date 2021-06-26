@@ -28,6 +28,7 @@
 import Link from 'next/link';
 import Banner from '../components/Banner';
 import Services from '../components/Services';
+import Blogs from './blog';
 
 const Index = () => {
   return (
@@ -39,6 +40,7 @@ const Index = () => {
                <Services/>
            </div>
         </div>
+        
         <h1>footer</h1>
     </div>
 );

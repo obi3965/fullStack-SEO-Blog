@@ -13,7 +13,7 @@ class MyDocument extends Document {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"/>
-          
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
         </Head>
         
         <body>

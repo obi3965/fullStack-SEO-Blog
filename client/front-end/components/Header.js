@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import nProgress from 'nprogress'
 import { APP_NAME } from '../config';
-import { signout, isAuth } from '../actions/auth';
+import { signout, isAuth } from '../pages/api/auth';
 import styles from '../styles/Home.module.css'
 import {
   Collapse,
@@ -15,6 +16,11 @@ import {
   Container,
   
 } from 'reactstrap';
+
+Router.onRouteChangeStart = url => nProgress.start()
+Router.onRouteChangeComplete = url => nProgress.done()
+Router.onRouteChangeError = url => nProgress.done()
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +42,11 @@ const Header = () => {
           <NavItem>
                   <Link href="/">
                     <NavLink className={styles.navLink}>home</NavLink>
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link href="/blog">
+                    <NavLink className={styles.navLink}>blog</NavLink>
                   </Link>
                 </NavItem>
           </Nav>

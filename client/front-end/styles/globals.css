@@ -13,3 +13,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#nprogress .bar{
+  background-color: #eac100 !important;
+  height: 3px;
+}
+
+.ql-editor {
+  height: 300px !important;
+}
