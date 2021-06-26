@@ -23,10 +23,16 @@ exports.create = async (req,res) =>{
 
 exports.list = async (req,res) =>{
     try {
-       const list = await Category.find() 
-       res.status(200).json(list)
+       const data = await Category.find() 
+       if(!data){
+        return res.status(400).json({
+            error: errorHandler(err)
+        })
+    }
+       res.status(200).json(data)
+       
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json({error:'internal server error'})
     }
 }
 

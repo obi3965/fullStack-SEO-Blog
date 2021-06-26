@@ -16,7 +16,8 @@ connectDb()
 const auth = require('./routes/auth')
 const category = require('./routes/category')
 const user = require('./routes/user')
-// const blog = require('./routes/blog')
+const tags = require('./routes/tags')
+const blog = require('./routes/blog')
 
 
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(cors());
 
+
 if (process.env.NODE_ENV === 'development') {
     app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 }
@@ -34,7 +36,10 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/v1', auth)
 app.use('/api/v1', user)
 app.use('/api/v1', category)
-// app.use('/api', blog)
+app.use('/api/v1', tags)
+app.use('/api/v1', blog)
+
+
 
 const port = process.env.PORT;
 app.listen(port, () => {
