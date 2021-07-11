@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
-import { getCookie } from '../../actions/auth'
-import { create, getCategories, removeCategory } from '../../actions/category'
+import { getCookie } from '../../pages/api/auth'
+import { create, getCategories, removeCategory } from '../../pages/api/category'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 
 

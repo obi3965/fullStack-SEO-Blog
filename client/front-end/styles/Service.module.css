@@ -25,15 +25,24 @@
     top: -0.7em;
     font-size: 1.3em;
     padding: 0 0.35em;
-    background: white;
+    background: #fff;
     opacity: .85;
     }
-
-    .box1, .box2, .box3{
-        box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.3);
+.box1{
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(37, 37, 37, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+     .box2 {
+        box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2), 0 -2px 20px 0 rgba(8, 8, 8, 0.19);
         padding: 20px;
+        background-color:rgba(8, 8, 8, 0.9);
     }
-
+.box3{
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(37, 37, 37, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
     .icon{
         display: flex;
         justify-content: center;
@@ -58,4 +67,21 @@
     }
     .boxdesc{
         margin-top: 20px;
+    }
+
+    .boxdesc1{
+        margin-top: 20px;
+        color: #fff;
+        opacity: .85;
+    }
+
+    .boxTitle1{
+        color: #fff;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-size: 28px;
+        margin-top: 20px;
+        opacity: .85;
     }

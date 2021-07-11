@@ -25,8 +25,8 @@ const Services = () => {
                    <div className={styles.icon}>
                    <i className="fas fa-caravan"></i>
                    </div>
-                   <h3 className={styles.boxTitle}>travel site</h3>
-                   <p className={styles.boxdesc}>Lorem ipsum dolor sit, amet consectetur 
+                   <h3 className={styles.boxTitle1}>travel site</h3>
+                   <p className={styles.boxdesc1}>Lorem ipsum dolor sit, amet consectetur 
                     adipisicing elit. Vero architecto 
                     dolor officia culpa harum beatae rerum 
                     !</p>

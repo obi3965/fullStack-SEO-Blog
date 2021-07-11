@@ -6,6 +6,8 @@ import nProgress from 'nprogress'
 import { APP_NAME } from '../config';
 import { signout, isAuth } from '../pages/api/auth';
 import styles from '../styles/Home.module.css'
+
+import Image from 'next/image'
 import {
   Collapse,
   Navbar,
@@ -33,7 +35,10 @@ const Header = () => {
     <div>
       <Navbar className={styles.navbar} light expand="md">
         <Link href="/">
-          <NavLink className={styles.logo}>{APP_NAME}</NavLink>
+          <NavLink className={styles.logo}>
+            <Image src="/seo-logo.png" alt="logo" width={142}
+      height={37} />
+          </NavLink>
         </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -45,8 +50,8 @@ const Header = () => {
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link href="/blog">
-                    <NavLink className={styles.navLink}>blog</NavLink>
+                  <Link href="/blogs">
+                    <NavLink className={styles.navLink}>blogs</NavLink>
                   </Link>
                 </NavItem>
           </Nav>

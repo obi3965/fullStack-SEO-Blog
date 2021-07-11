@@ -19,15 +19,32 @@ export const createBlog = (blog, token) => {
 
 
 
-export const listBlogsWithCategoriesAndTags = () => {
+export const listBlogsWithCategoriesAndTags = (skip,limit) => {
+
+    const data = {
+        limit,
+        skip
+    };
     return fetch(`${API}/blogs-categories-tags`, {
         method: 'POST',
         headers: {
-            Accept: 'application/json'
-        }
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
         .then(response => {
-           
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+
+export const singleBlog = slug => {
+    return fetch(`${API}/blog/${slug}`, {
+        method: 'GET'
+    })
+        .then(response => {
             return response.json();
         })
         .catch(err => console.log(err));

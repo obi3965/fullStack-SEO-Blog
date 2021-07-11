@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import React,{useState, useEffect} from 'react'
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
-import { authenticate, Signin, isAuth} from '../../actions/auth'
+import { authenticate, Signin, isAuth } from '../../pages/api/auth';
 import styles from '../../styles/Form.module.css'
 
 

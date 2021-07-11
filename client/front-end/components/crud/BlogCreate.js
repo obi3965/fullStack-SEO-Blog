@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Router from "next/router";
 import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
-import { getCookie, isAuth } from "../../pages/api/auth";
-import { getCategories } from "../../actions/category";
-import { getTags } from "../../actions/tags";
+import { getCookie } from "../../pages/api/auth";
+import { getCategories } from "../../pages/api/category";
+import { getTags } from "../../pages/api/tags";
 import { createBlog } from "../../pages/api/blog";
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "../../node_modules/react-quill/dist/quill.snow.css";
-//import { QuillModules, QuillFormats } from '../../helpers/quill';
 import styles from '../../styles/BlogCreate.module.css'
 
 const BlogCreate = ({ router }) => {
@@ -31,6 +28,7 @@ const BlogCreate = ({ router }) => {
     success: "",
     formData: "",
     title: "",
+    desc:'',
     handlePublishButton: false,
   });
   const [body, setBody] = useState(blogFromLS());
@@ -41,7 +39,7 @@ const BlogCreate = ({ router }) => {
   const [checkedTag, setCheckedTag] = useState([]);// for Tags
 
 
-  const { error, sizeError, success, formData, title, handlePublishButton } =values;
+  const { error, sizeError, success, formData, title,desc, handlePublishButton } = values;
   const token = getCookie('token');
 
   useEffect(() => {
@@ -130,14 +128,14 @@ const BlogCreate = ({ router }) => {
 
 
 
-  const handleBody = (e) => {
-    //console.log(e.target.value);
-    setBody(e)
-    formData.set('body', e)
-    if(typeof window !== 'undefined'){
-        localStorage.setItem('blog', JSON.stringify(e))
-    }
-  };
+const handleBody = e => {
+  // console.log(e);
+  setBody(e);
+  formData.set('body', e);
+  if (typeof window !== 'undefined') {
+      localStorage.setItem('blog', JSON.stringify(e));
+  }
+};
 
   const showCategories = () => {
     return (
@@ -206,6 +204,7 @@ const showSuccess = () => (
             onChange={handleBody}
           />
         </FormGroup>
+       <Input type="textarea" value={desc} onChange={handleChange('desc')} />
 
         <Button type="submit">publish</Button>
       </Form>

@@ -2,6 +2,9 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+
+
+
 const Banner = () => {
   return(
     <div className={styles.banner}>

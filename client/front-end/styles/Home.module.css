@@ -1,23 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Monoton&family=Pacifico&display=swap');
+
 
 .navbar{
-  /* background: #1f2833 !important; */
-  padding: 22px;
- position: fixed;
+  background: #fff!important;
+  padding: 8px !important;
+ position: fixed !important;
  top: 0;
  z-index: 999;
  right: 0;
  left: 0;
- height: 12vh;
  transition: ease-in-out .5s all;
- background-color: #fff !important;
+ 
 }
 .links{
   color: #000 !important;
   cursor: pointer;
 }
 .navLink:hover{
-  color: #eac100 !important;
+  color: #f5ab35 !important;
 }
 
 .banner{
@@ -37,18 +36,19 @@
 .navLink{
   color: #000 !important;
   text-transform: capitalize;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   cursor:  pointer !important;
-  letter-spacing: 1px;
+  
 }
+/* #0dcaf0 */
 .logo{
- color: #eac100 !important;
+ color: #f5ab35 !important;
 letter-spacing: 2px;
  font-weight: 800;
  text-transform: uppercase;
  font-size: 23px;
- font-family: 'Pacifico', cursive;
+ font-family: 'Russo One', sans-serif;
 }
 .user{
   display: flex;
@@ -58,53 +58,51 @@ letter-spacing: 2px;
 
 
 .link1{
-  color: #000 !important;
-  border: 1px solid #eac100;
-  padding: 7px 23px !important;
+  color: #fff!important;
+  padding: 6px 23px !important;
   letter-spacing: 1px;
   text-transform: capitalize;
   margin-right: 10px !important;
   cursor:  pointer !important;
   transition: all .5s ease-in-out;
-  font-size: 18px;
+  font-size: 15px;
   border-radius: 5px;
-  background-color:#eac100;
+  background-color:#f5ab35;
   
 }
 .link1:hover{
-  background-color: #eac100;
+  background-color: #000;
   transition: all .5s ease-in-out;
-  color: #000 !important;
+  color: #fff !important;
   border-radius: 35px;
 }
 
 .link2{
-  font-size: 18px;
-  padding: 7px 23px !important;
+  font-size: 15px;
+  padding: 6px 23px !important;
   letter-spacing: 1px;
   text-transform: capitalize;
   margin-right: 10px !important;
   cursor:  pointer !important;
-  border: 1px solid #eac100;
   border-radius: 5px;
-  color: #000;
+  color: #fff !important;
   transition: all .5s ease-in-out;
-  background-color:#eac100;
+  background-color:#f5ab35;
 }
 
 .link2:hover{
-  background-color:#eac100;
+  background-color:#000;
   transition: all .5s ease-in-out;
-  color: #000 !important;
+  color: #fff !important;
   border-radius: 35px;
 }
 .bannerItems{
   position: absolute;
-  top: 64%;
+  top: 60%;
   left: 50%;
   color: #fff;
   text-transform:uppercase ;
-  transform: translate(-50%,-64%);
+  transform: translate(-50%,-50%);
   align-items: center;
   justify-content: center;
   display: flex;
@@ -114,12 +112,14 @@ letter-spacing: 2px;
 .bannerTitle{
   font-size: 50px;
   font-weight: 900;
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: 2px;
   
 }
 .bannerItems a{
-  background-color: #eac100 !important;
-  border: 2px solid #eac100!important;
-  padding: 12px 50px;
+  background-color: #f5ab35 !important;
+  border: 2px solid #f5ab35!important;
+  padding: 12px 55px;
   margin: 30px auto;
   color: #fff;
   text-transform: capitalize;
@@ -140,7 +140,7 @@ letter-spacing: 2px;
 
 .userLink{
   color: #000 !important;
-  border: 1px solid #eac100;
+  border: 1px solid #f5ab35;
   padding: 7px 23px !important;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -149,11 +149,11 @@ letter-spacing: 2px;
   transition: all .5s ease-in-out;
   font-size: 18px;
   border-radius: 5px;
-  background-color:#eac100;
+  background-color:#f5ab35;
   
 }
 .userLink:hover{
-  background-color: #eac100;
+  background-color: #f5ab35;
   transition: all .5s ease-in-out;
   color: #000 !important;
   border-radius: 35px;

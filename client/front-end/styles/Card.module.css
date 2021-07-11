@@ -1,0 +1,33 @@
+.cardImage img{
+    min-width: 100%;
+}
+
+.cardBox{
+    height: auto;
+    padding: 10.5px;
+}
+
+.readLink{
+    color: #fff !important;
+    background-color: #f5ab35 !important;
+    padding: 10px 20px;
+    
+  }
+
+  .readLinks{
+    margin-top: 10px !important;  
+  }
+  
+  .title h2{
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+  }
+  .cardBox p {
+    color: #fff;
+    opacity: .85;
+  }
+  .written{
+      color: #f5ab35 !important;
+      font-weight: 500;
+  }

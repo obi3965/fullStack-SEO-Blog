@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import {API} from '../config'
+import { API } from '../../config';
 
 
 export const create = (tag, token) => {

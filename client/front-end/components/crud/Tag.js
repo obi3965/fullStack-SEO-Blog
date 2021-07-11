@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
-import { getCookie } from '../../actions/auth'
-import { create, getTags, removeTags } from '../../actions/tags'
+import { getCookie } from '../../pages/api/auth'
+import { create, getTags, removeTags } from '../../pages/api/tags'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 
 
@@ -109,7 +109,7 @@ const mouseMoveHandler = e => {
     <Form onSubmit={clickSubmit}>
      <FormGroup>
        <Label>category name</Label>
-         <Input type="text" placeholder="Enter Category Name" onChange={handleChange} value={name} autoComplete="off" />
+         <Input type="text" placeholder="Enter Tag Name" onChange={handleChange} value={name} autoComplete="off" />
          
      </FormGroup>
       <Button>create</Button>
