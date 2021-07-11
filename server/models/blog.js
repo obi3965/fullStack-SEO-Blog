@@ -17,17 +17,15 @@ const blogSchema = new mongoose.Schema(
             index: true
         },
         
-        text: {
+        body: {
             type: String,
             required: true,
-            min: 200,
-            max: 2000000
+            
         },
         desc: {
             type: String,
             required: true,
-            min: 200,
-            max: 2000000
+            
         },
         photo: {
             data: Buffer,

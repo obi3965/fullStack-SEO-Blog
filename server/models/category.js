@@ -5,8 +5,11 @@ const categorySchema = new mongoose.Schema(
         name: {
             type: String,
             trim: true,
-            required: true,
             max: 32
+        },
+        photo:{
+            data: Buffer,
+            contentType:String
         },
         slug: {
             type: String,

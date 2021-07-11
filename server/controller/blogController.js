@@ -13,6 +13,7 @@ const fs = require('fs');
 
 
 
+
 exports.create = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
@@ -23,7 +24,7 @@ exports.create = (req, res) => {
           });
       }
 
-      const { title, desc,text, categories, tags } = fields;
+      const { title, desc,body, categories, tags } = fields;
 
       if (!title || !title.length) {
           return res.status(400).json({
@@ -31,7 +32,7 @@ exports.create = (req, res) => {
           });
       }
 
-      if (!text || text.length < 200) {
+      if (!body || body.length < 200) {
           return res.status(400).json({
               error: 'Content is too short'
           });
@@ -48,12 +49,16 @@ exports.create = (req, res) => {
               error: 'At least one tag is required'
           });
       }
+      if (!desc || desc.length < 100) {
+        return res.status(400).json({
+            error: 'At least one tag is required'
+        });
+    }
 
       let blog = new Blog();
       blog.title = title;
-      blog.text = text;
+      blog.body = body;
       blog.slug = slugify(title).toLowerCase();
-      blog.mtitle = `${title} | ${process.env.APP_NAME}`;
       blog.desc = desc;
       blog.postedBy = req.user._id;
       // categories and tags
@@ -185,11 +190,11 @@ exports.create = (req, res) => {
 
     const slug = req.params.slug.toLowerCase()
     try {
-      const data = await Blog.find({ slug })
+      const data = await Blog.findOne({ slug })
       .populate('categories', '_id name slug')
         .populate('tags', '_id name slug')
         .populate('postedBy', '_id name username')
-        .select('_id title body slug mtitle mdesc categories tags postedBy createdAt updatedAt')
+        .select('_id title body photo slug text desc categories tags postedBy createdAt updatedAt')
     
         if(!data){
           return res.json({
@@ -310,3 +315,24 @@ exports.photo = async (req,res) => {
     })
   }
 }
+
+
+exports.listRelated = (req, res) => {
+    let limit = req.body.limit ? parseInt(req.body.limit) : 3;
+    const { _id, categories } = req.body.blog;
+
+    Blog.find({ _id: { $ne: _id }, categories: { $in: categories } })
+        .limit(limit)
+        .populate('postedBy', '_id name profile')
+        .select('_id title slug desc text postedBy createdAt updatedAt')
+        .exec((err, blogs) => {
+            if (err) {
+                return res.status(400).json({
+                    error: 'Blogs not found'
+                });
+              
+            } 
+            res.json(blogs); 
+        });
+        
+};
